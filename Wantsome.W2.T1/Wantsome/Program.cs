@@ -22,6 +22,9 @@ namespace Wantsome
             //            Console.WriteLine("-------------------");
             //            FizzBuzz(1, 1000);
             Console.WriteLine("-------------------");
+            int[] i = new int[] { 1, 3, 5, 8, 9, 1, 3, 6, 5, 9, 2, 5, 4, 7, 5, 6, 2, 1, 3, 6, 9, 8, 5, 2, 1, 5 };
+            //FreequencyOfEachElement(i);
+            SeparateOddAndEven(i);
 
 
         }
@@ -167,20 +170,61 @@ namespace Wantsome
 
         static void FreequencyOfEachElement(int[] arr)
         {
+            int[] freeq = new int[arr.Length];
+            int visited = -1;
+
             for (int i = 0; i < arr.Length; i++)
             {
+                int count = 1;
+                for (int j = i + 1; j < arr.Length; j++)
+                {
+                    if (arr[i] == arr[j])
+                    {
+                        count++;
+                        freeq[j] = visited;
+                    }
 
+                }
+
+                if (freeq[i] != visited)
+                {
+                    freeq[i] = count;
+                }
 
             }
+            for (int i = 0; i < freeq.Length; i++)
+            {
+                if (freeq[i] != visited)
+                {
+                    Console.WriteLine($"{arr[i]} has {freeq[i]} nr of elements");
+                }
+
+            }
+
         }
 
         static void SeparateOddAndEven(int[] arr)
         {
-            for (int i = 0; i < arr.Length; i++)
-            {
+            int[] odd = new int[arr.Length];
+            int[] even = new int[arr.Length];
 
+            for (int i = 0, j = 0, h = 0; i < arr.Length; i++)
+            {
+                if (arr[i] % 2 == 0)
+                {
+                    even[j] = arr[i];
+                    j++;
+                }
+                else
+                {
+                    odd[h] = arr[i];
+                    h++;
+                }
 
             }
+
+            PrintArrays(even);
+            PrintArrays(odd);
         }
 
         static void CommonElementsBetweenArrays()
@@ -207,5 +251,15 @@ namespace Wantsome
         {
 
         }
+
+        static void PrintArrays(int[] arr)
+        {
+            for (int i = 0; i < arr.Length; i++)
+            {
+                Console.Write(arr[i] + ", ");
+            }
+            Console.WriteLine("-----------------");
+        }
+
     }
 }
