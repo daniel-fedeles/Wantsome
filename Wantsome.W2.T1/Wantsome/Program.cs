@@ -165,12 +165,12 @@ namespace Wantsome
 
         }
 
-        static void FreequencyOfEachElement(int[]arr)
+        static void FreequencyOfEachElement(int[] arr)
         {
             for (int i = 0; i < arr.Length; i++)
             {
 
-                
+
             }
         }
 
@@ -181,6 +181,31 @@ namespace Wantsome
 
 
             }
+        }
+
+        static void CommonElementsBetweenArrays()
+        {
+
+        }
+
+        static void StringWithUniqueCharacters()
+        {
+
+        }
+
+        static void RemoveDuplicatesFromLinkedList()
+        {
+
+        }
+
+        static void PrimeOrNot()
+        {
+
+        }
+
+        static void Palindrome()
+        {
+
         }
     }
 }
