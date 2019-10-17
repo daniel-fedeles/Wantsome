@@ -30,7 +30,9 @@ namespace Wantsome
             //            Console.WriteLine("-------------------");
             //            CommonElementsBetweenArrays(i, j);
             Console.WriteLine("-------------------");
-            StringWithUniqueCharacters("abcdefabcf");
+            //            StringWithUniqueCharacters("abcdefabcf");
+            Console.WriteLine("-------------------");
+            SumOfArray(i);
 
 
         }
@@ -316,17 +318,77 @@ namespace Wantsome
         {
 
         }
-
         static void PrimeOrNot()
         {
+            int n, i, m = 0, flag = 0;
+            Console.Write("Enter the Number to check Prime: ");
+            n = int.Parse(Console.ReadLine());
+            m = n / 2;
+            for (i = 2; i <= m; i++)
+            {
+                if (n % i == 0)
+                {
+                    Console.Write("Number is not Prime.");
+                    flag = 1;
+                    break;
+                }
+            }
+            if (flag == 0)
+                Console.Write("Number is Prime.");
 
         }
-
         static void Palindrome()
         {
 
         }
 
+        static int SumOfArray(int[] arr)
+        {
+            int sum = 0;
+            for (int i = 0; i < arr.Length; i++)
+            {
+                sum = sum + arr[i];
+            }
+            Console.WriteLine("Sum = " + sum);
+            return sum;
+        }
+
+        static void AverageValueArray(int[] arr)
+        {
+            Console.WriteLine("Average = " + SumOfArray(arr) / arr.Length);
+        }
+
+        static void FindIndexOfAnArray(int[] arr, int index)
+        {
+            for (int i = 0; i < arr.Length; i++)
+            {
+                if (i == index)
+                {
+                    Console.WriteLine("For specific index: " + index + " the correspondent element is: " + arr[i]);
+                    break;
+                }
+            }
+        }
+
+        static void RemoveElement()
+        {
+
+        }
+
+        static void InsertElementToSpecificPosition()
+        {
+
+        }
+
+        static void MaximAndMinOfAnArray()
+        {
+
+        }
+
+        static void CoppyElementFromOneArrayToAnother()
+        {
+
+        }
         static void PrintArrays(int[] arr)
         {
             for (int i = 0; i < arr.Length; i++)
