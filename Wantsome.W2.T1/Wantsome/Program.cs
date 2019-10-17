@@ -21,10 +21,16 @@ namespace Wantsome
             //            Fibonacci(50);
             //            Console.WriteLine("-------------------");
             //            FizzBuzz(1, 1000);
-            Console.WriteLine("-------------------");
-            int[] i = new int[] { 1, 3, 5, 8, 9, 1, 3, 6, 5, 9, 2, 5, 4, 7, 5, 6, 2, 1, 3, 6, 9, 8, 5, 2, 1, 5 };
+            //            Console.WriteLine("-------------------");
+            int[] i = new int[] { 1, 3, 5, 8, 9, 1, 3, 6, 5, 9, 2, 5, 4, 7, 5, 6, 100, 2, 1, 3, 6, 9, 8, 5, 2, 1, 5 };
+            int[] j = new int[] { 2, 5, 4, 7, 5, 6, 2, 1, 3, 6, 9, 8, 5, 2, 1, 5, 20, 9, 100 };
             //FreequencyOfEachElement(i);
-            SeparateOddAndEven(i);
+            //            Console.WriteLine("-------------------");
+            //            SeparateOddAndEven(i);
+            //            Console.WriteLine("-------------------");
+            //            CommonElementsBetweenArrays(i, j);
+            Console.WriteLine("-------------------");
+            StringWithUniqueCharacters("abcdefabcf");
 
 
         }
@@ -205,9 +211,25 @@ namespace Wantsome
 
         static void SeparateOddAndEven(int[] arr)
         {
-            int[] odd = new int[arr.Length];
-            int[] even = new int[arr.Length];
+            int countOdd = 0;
+            int countEven = 0;
 
+            for (int i = 0, j = 0, h = 0; i < arr.Length; i++)
+            {
+                if (arr[i] % 2 == 0)
+                {
+                    countEven++;
+                    j++;
+                }
+                else
+                {
+                    countOdd++;
+                    h++;
+                }
+
+            }
+            int[] odd = new int[countOdd];
+            int[] even = new int[countEven];
             for (int i = 0, j = 0, h = 0; i < arr.Length; i++)
             {
                 if (arr[i] % 2 == 0)
@@ -227,14 +249,67 @@ namespace Wantsome
             PrintArrays(odd);
         }
 
-        static void CommonElementsBetweenArrays()
+        static void CommonElementsBetweenArrays(int[] arr1, int[] arr2)
         {
+            int[] commonElements;
+            int count = 0;
+
+            for (int i = 0; i < arr1.Length; i++)
+            {
+                for (int j = 0; j < arr2.Length; j++)
+                {
+                    if (arr2[j] == arr1[i])
+                    {
+                        count++;
+                    }
+                }
+            }
+            commonElements = new int[count];
+            count = 0;
+            foreach (var i in arr1)
+            {
+                foreach (var j in arr2)
+                {
+                    if (i == j)
+                    {
+                        commonElements[count] = j;
+                        count++;
+                    }
+                }
+            }
+
+            Console.WriteLine("Common elements between");
+            PrintArrays(arr1);
+            Console.WriteLine("and");
+            PrintArrays(arr2);
+            Console.WriteLine("are");
+            PrintArrays(commonElements);
+            FreequencyOfEachElement(commonElements);
 
         }
 
-        static void StringWithUniqueCharacters()
+        static void StringWithUniqueCharacters(string mystring)
         {
+            bool flag = false;
+            for (int i = 0; i < mystring.Length; i++)
+            {
+                int count = 1;
+                for (int j = i + 1; j < mystring.Length; j++)
+                {
+                    if (mystring[i] == mystring[j])
+                    {
+                        flag = true;
+                        Console.WriteLine("Duplicate character is: " + mystring[i]);
+                        break;
+                    }
 
+                }
+            }
+
+            if (flag)
+            {
+                Console.WriteLine($"The string '{mystring}' doesn't contain unique characters");
+            }
         }
 
         static void RemoveDuplicatesFromLinkedList()
@@ -258,6 +333,7 @@ namespace Wantsome
             {
                 Console.Write(arr[i] + ", ");
             }
+            Console.WriteLine("");
             Console.WriteLine("-----------------");
         }
 
