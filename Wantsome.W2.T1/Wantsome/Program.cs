@@ -387,7 +387,6 @@ namespace Wantsome
             bool flag = false;
             for (int i = 0; i < mystring.Length; i++)
             {
-                int count = 1;
                 for (int j = i + 1; j < mystring.Length; j++)
                 {
                     if (mystring[i] == mystring[j])
