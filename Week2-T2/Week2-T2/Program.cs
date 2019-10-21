@@ -6,9 +6,13 @@ namespace Week2_T2
     {
         static void Main(string[] args)
         {
+            int[] i = new int[] { 1, 3, 5, 8, 9, 1, 3, 6, 5, 9, 2, 5, 4, 7, 5, 6, 100, 2, 1, 3, 6, 9, 8, 5, 2, 1, 5 };
             //            Palindrome("##$$##");
             //            RemoveDuplicatesFromLinkedList();
-            LengthLastString(" gigi Kent");
+            //            LengthLastString(" gigi Kent");
+            //            FindIndexOfAnArray(i, 3);
+            //            RemoveElement(i, 5);
+            //            MaximAndMinOfAnArray();
         }
 
         static void Palindrome(string word)
@@ -24,7 +28,6 @@ namespace Week2_T2
                 Console.WriteLine("Not palindrome");
             }
         }
-
         static void LengthLastString(string words)
         {
 
@@ -65,7 +68,67 @@ namespace Week2_T2
 
 
         }
+        static void FindIndexOfAnArray(int[] arr, int value)
+        {
+            int count = 0;
 
+            for (int i = 0; i < arr.Length; i++)
+            {
+                if (arr[i] == value)
+                {
+                    count++;
+                }
+            }
+            int[] index = new int[count];
+            int x = 0;
+            for (int i = 0; i < arr.Length; i++)
+            {
+                if (arr[i] == value)
+                {
+                    index[x] = i;
+                    x++;
+                }
+            }
+            Console.Write("For specific value: " + value + " the correspondent index is: ");
+            for (int i = 0; i < index.Length; i++)
+            {
+                if (i == 0)
+                {
+                    Console.Write(index[i]);
+                }
+                else if (i == index.Length - 1)
+                {
+                    Console.Write(", " + index[i] + " ");
+                }
+                else
+                {
+                    Console.Write(", " + index[i]);
+                }
+
+            }
+        }
+        static void RemoveElement(int[] arr, int value)
+        {
+
+            int[] newArr = new int[arr.Length - 1];
+
+            for (int i = 0; i < arr.Length; i++)
+            {
+                if (!(i == value || arr[i] == value))
+                {
+                    newArr[i] = arr[i];
+                }
+            }
+
+
+        }
+        static void MaximAndMinOfAnArray(int[] arr)
+        {
+
+        }
+
+
+        #region 
         static string ReverseString(string word)
         {
             string reverseWord = String.Empty;
@@ -73,10 +136,9 @@ namespace Week2_T2
             {
                 reverseWord = reverseWord + word[i];
             }
-
             return reverseWord;
         }
-
+        #endregion
     }
 
 
