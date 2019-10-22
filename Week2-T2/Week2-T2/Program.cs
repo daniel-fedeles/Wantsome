@@ -12,7 +12,8 @@ namespace Week2_T2
             //            LengthLastString(" gigi Kent");
             //            FindIndexOfAnArray(i, 3);
             //            RemoveElement(i, 5);
-            //            MaximAndMinOfAnArray();
+            MaximAndMinOfAnArray(i);
+            //            RemoveDuplicatesFromLinkedList();
         }
 
         static void Palindrome(string word)
@@ -124,17 +125,44 @@ namespace Week2_T2
         }
         static void MaximAndMinOfAnArray(int[] arr)
         {
+            int[] arr2 = BubbleSort(arr);
+            Console.WriteLine("Min: " + arr2[0]);
+            Console.WriteLine("Max: " + arr2[arr2.Length - 1]);
+        }
+
+        static void RemoveDuplicatesFromLinkedList()
+        {
 
         }
 
 
-        #region 
+        #region
+
+
+
+        public static int[] BubbleSort(int[] a)
+        {
+            for (int i = 1; i <= a.Length - 1; ++i)
+            {
+                for (int j = 0; j < a.Length - i; ++j)
+                {
+                    if (a[j] > a[j + 1])
+                    {
+                        int temp = a[j];
+                        a[j] = a[j + 1];
+                        a[j + 1] = temp;
+                    }
+                }
+            }
+            return a;
+        }
+
         static string ReverseString(string word)
         {
             string reverseWord = String.Empty;
             for (int i = word.Length - 1; i >= 0; i--)
             {
-                reverseWord = reverseWord + word[i];
+                reverseWord += word[i];
             }
             return reverseWord;
         }
